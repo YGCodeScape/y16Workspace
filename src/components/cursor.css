@@ -1,0 +1,70 @@
+/* ========================================================
+   Paintbrush Custom Cursor & Tail Styles
+   ======================================================== */
+
+/* Fullscreen Canvas Overlay for Paint Trail */
+.paint-canvas-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99990;
+}
+
+/* Custom Paintbrush Cursor Head */
+.paint-brush-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paint-brush-cursor.visible {
+  opacity: 1;
+}
+
+/* Inner brush wrapper for tilt and pressing micro-animations */
+.paint-brush-inner {
+  transform-origin: 1px 1px;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18));
+}
+
+/* Interactive element hover (hovering links, buttons, chars) */
+.paint-brush-cursor.hovering .paint-brush-inner {
+  transform: scale(1.14) rotate(-10deg);
+}
+
+/* Mouse down / painting press */
+.paint-brush-cursor.pressed .paint-brush-inner {
+  transform: scale(0.92) rotate(-5deg) translate(1px, 1px);
+}
+
+/* Hide default cursor on desktop with hover & fine pointer */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none !important;
+  }
+
+  a, button, [role="button"], input, textarea, select, .hero-char, .hero-reveal-btn, .mobile-hamburger-btn {
+    cursor: none !important;
+  }
+}
+
+/* Disable custom cursor & canvas completely on mobile / touch screens */
+@media (hover: none), (pointer: coarse), (max-width: 860px) {
+  .paint-canvas-overlay,
+  .paint-brush-cursor {
+    display: none !important;
+  }
+
+  html, body, a, button, [role="button"], input, textarea, select {
+    cursor: auto !important;
+  }
+}
