@@ -47,6 +47,11 @@ html, body {
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+a, button, [role="button"] {
+  cursor: pointer;
 }
 
 /* Custom scrollbar */

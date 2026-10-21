@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroKinetic from './components/HeroKinetic';
+import SkillsSection from './components/SkillsSection';
 import ContactModal from './components/ContactModal';
-import PaintBrushCursor from './components/PaintBrushCursor';
 import { downloadResume } from './utils/resumeDownload';
 
 export default function App() {
@@ -10,18 +10,16 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF', position: 'relative' }}>
-      {/* Custom Paintbrush Cursor with Dynamic Fading Colorful Tail */}
-      <PaintBrushCursor />
-
       {/* Top Header Navigation */}
       <Navbar 
         onOpenContact={() => setIsContactOpen(true)}
         onDownloadResume={downloadResume}
       />
 
-      {/* Main Interactive Hero Section */}
+      {/* Main Interactive Sections */}
       <main>
         <HeroKinetic />
+        <SkillsSection onOpenContact={() => setIsContactOpen(true)} />
       </main>
 
       {/* Contact Drawer / Modal */}

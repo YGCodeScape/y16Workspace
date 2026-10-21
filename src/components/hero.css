@@ -117,10 +117,10 @@
 
 /* Bottom Right Button: Reveal All / Reset Note */
 .hero-bottom-action {
-  position: fixed;
+  position: absolute;
   bottom: 2rem;
   right: 2.5rem;
-  z-index: 100;
+  z-index: 50;
   opacity: 0;
   transform: translateY(18px);
   pointer-events: none;
