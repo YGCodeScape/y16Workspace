@@ -7,9 +7,10 @@ import {
   Rocket, 
   Sparkles, 
   RotateCcw,
+  Search,
   X
 } from 'lucide-react';
-import './skills.css';
+import '../styles/skills.css';
 
 export default function SkillsSection({ onOpenContact }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -111,11 +112,12 @@ export default function SkillsSection({ onOpenContact }) {
           {/* Top Right Search Bar */}
           <div className="skills-search-wrapper">
             <div className="skills-search-pill-box">
+              <Search size={16} className="skills-search-icon" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search...."
+                placeholder="Search skills, tools, tags..."
                 className="skills-search-pill-input"
                 aria-label="Search skills"
                 id="skills-search-field"
@@ -126,7 +128,7 @@ export default function SkillsSection({ onOpenContact }) {
                   className="skills-search-pill-clear"
                   aria-label="Clear search"
                 >
-                  <X size={15} />
+                  <X size={14} />
                 </button>
               )}
             </div>

@@ -27,7 +27,7 @@ export const SKILLS_DATA = [
     name: 'REACT.JS',
     category: 'Frontend Library',
     type: 'tech',
-    percentage: 95,
+    percentage: 85,
     color: '#00D8FF', // React Cyan
     iconType: 'react',
     tags: ['react', 'reactjs', 'frontend', 'ui', 'hooks', 'jsx', 'javascript', 'web'],
@@ -37,7 +37,7 @@ export const SKILLS_DATA = [
     name: 'JAVASCRIPT',
     category: 'Programming Language',
     type: 'tech',
-    percentage: 92,
+    percentage: 75,
     color: '#F7DF1E', // JS Yellow
     iconType: 'javascript',
     tags: ['javascript', 'js', 'es6', 'programming', 'frontend', 'web', 'scripting'],
@@ -47,7 +47,7 @@ export const SKILLS_DATA = [
     name: 'NEXT.JS',
     category: 'Fullstack Framework',
     type: 'tech',
-    percentage: 89,
+    percentage: 40,
     color: '#000000', // Next.js Black
     iconType: 'nextjs',
     tags: ['next', 'nextjs', 'react', 'fullstack', 'ssr', 'web', 'frontend'],
@@ -57,7 +57,7 @@ export const SKILLS_DATA = [
     name: 'NODE.JS',
     category: 'Backend Runtime',
     type: 'tech',
-    percentage: 88,
+    percentage: 78,
     color: '#339933', // Node Green
     iconType: 'nodejs',
     tags: ['node', 'nodejs', 'backend', 'server', 'api', 'express', 'javascript'],
@@ -67,7 +67,7 @@ export const SKILLS_DATA = [
     name: 'TYPESCRIPT',
     category: 'Type Safety',
     type: 'tech',
-    percentage: 90,
+    percentage: 40,
     color: '#3178C6', // TS Blue
     iconType: 'typescript',
     tags: ['typescript', 'ts', 'types', 'safety', 'frontend', 'javascript', 'backend'],
@@ -77,17 +77,37 @@ export const SKILLS_DATA = [
     name: 'TAILWIND',
     category: 'Utility Styling',
     type: 'tech',
-    percentage: 93,
+    percentage: 83,
     color: '#38BDF8', // Tailwind Cyan
     iconType: 'tailwind',
     tags: ['tailwind', 'css', 'design', 'ui', 'components', 'styling'],
+  },
+  {
+    id: 'mysql',
+    name: 'MYSQL',
+    category: 'Relational Database',
+    type: 'database',
+    percentage: 73,
+    color: '#00758F',
+    iconType: 'mysql',
+    tags: ['mysql', 'database', 'RDBMS', 'DBMS', 'sql', 'backend'],
+  },
+  {
+    id: 'supabase',
+    name: 'SUPABASE',
+    category: 'Backend Platform',
+    type: 'backend',
+    percentage: 80,
+    color: '#3ECF8E',
+    iconType: 'supabase',
+    tags: ['supabase', 'backend', 'database', 'serverless', 'auth', 'storage', 'postgres'],
   },
   {
     id: 'git',
     name: 'GIT / GITHUB',
     category: 'Version Control',
     type: 'tech',
-    percentage: 91,
+    percentage: 81,
     color: '#F05032', // Git Orange
     iconType: 'git',
     tags: ['git', 'github', 'version control', 'collaboration', 'ci/cd', 'devops'],
@@ -107,7 +127,7 @@ export const SKILLS_DATA = [
     name: 'PYTHON',
     category: 'Data & Scripting',
     type: 'tech',
-    percentage: 86,
+    percentage: 56,
     color: '#387EB8', // Python Blue
     iconType: 'python',
     tags: ['python', 'scripting', 'backend', 'data', 'algorithms'],
@@ -122,6 +142,16 @@ export const SKILLS_DATA = [
     iconType: 'api',
     tags: ['api', 'rest', 'http', 'backend', 'integration', 'json', 'webhooks'],
   },
+    {
+    id: 'postman',
+    name: 'POSTMAN',
+    category: 'API Testing',
+    type: 'backend',
+    percentage: 56,
+    color: '#FF6C37', // Postman Orange
+    iconType: 'postman',
+    tags: ['postman', 'api', 'testing', 'backend', 'integration', 'json'],
+  },
   {
     id: 'figma',
     name: 'FIGMA',
@@ -133,16 +163,6 @@ export const SKILLS_DATA = [
     tags: ['figma', 'design', 'ui', 'ux', 'wireframing', 'prototyping'],
   },
   {
-    id: 'chess',
-    name: 'CHESS',
-    category: 'Strategic Hobby',
-    type: 'hobby',
-    percentage: 94,
-    color: '#00D084', // Mint Emerald
-    iconType: 'chess',
-    tags: ['chess', 'hobby', 'strategy', 'tactics', 'focus', 'problem solving'],
-  },
-  {
     id: 'creative',
     name: 'CREATIVE UI',
     category: 'Creative Obsession',
@@ -151,15 +171,5 @@ export const SKILLS_DATA = [
     color: '#7928CA', // Royal Purple
     iconType: 'creative',
     tags: ['creative coding', 'kinetic', 'canvas', 'svg', 'typography', 'motion', 'animation'],
-  },
-  {
-    id: 'music',
-    name: 'SOUND & MUSIC',
-    category: 'Creative Flow',
-    type: 'hobby',
-    percentage: 85,
-    color: '#FF3366', // Coral Red
-    iconType: 'music',
-    tags: ['music', 'hobby', 'sound', 'audio', 'creativity', 'flow'],
   },
 ];

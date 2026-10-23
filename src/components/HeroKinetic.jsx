@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
-import { ArrowRight, Sparkles, RotateCcw } from 'lucide-react';
-import './hero.css';
+import { ArrowRight, ArrowDown, Sparkles, RotateCcw } from 'lucide-react';
+import '../styles/hero.css';
 
 const COOLORS_PALETTE = [
   '#00D084', // Mint / Emerald Green
@@ -22,7 +22,7 @@ const WORDS = NOTE_TEXT.split(' ');
 // Static constant: total non-space characters
 const TOTAL_LETTERS = NOTE_TEXT.replace(/\s+/g, '').length;
 
-export default function HeroKinetic() {
+export default function HeroKinetic({ onOpenContact }) {
   // Map of charIndex -> { revealed: bool, activeColor: string | null, tilt: number, isHovered: bool }
   const [letterStates, setLetterStates] = useState({});
   const containerRef = useRef(null);
@@ -137,7 +137,9 @@ export default function HeroKinetic() {
   let charCounter = 0;
 
   return (
-    <section ref={containerRef}
+    <section 
+      id="home"
+      ref={containerRef}
       onMouseMove={handleMouseMoveContainer}
       onTouchMove={handleTouchMoveContainer}
       onTouchStart={handleTouchStartContainer}
@@ -187,6 +189,23 @@ export default function HeroKinetic() {
           );
         })}
       </div>
+
+      {/* Small Bottom Center Chip: Explore Me */}
+      <a 
+        href="#about-section" 
+        className="hero-explore-chip" 
+        aria-label="Explore About Me"
+        onClick={(e) => {
+          e.preventDefault();
+          const target = document.getElementById('about-section');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+      >
+        <span>explore me</span>
+        <ArrowDown size={13} strokeWidth={2.4} className="hero-explore-chip-arrow" />
+      </a>
 
       {/* Single Bottom Right Button: Reveal All / Reset Note */}
       <div className={`hero-bottom-action ${hasStartedRevealing ? 'active' : ''}`}>

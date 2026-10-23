@@ -55,28 +55,48 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Dark Pill Search Bar (Top Right) */
+/* Transparent Pill Search Bar (Top Right) */
 .skills-search-wrapper {
   position: relative;
   width: 100%;
-  max-width: 270px;
+  max-width: 290px;
 }
 
 .skills-search-pill-box {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #52525B;
-  border-radius: 12px;
-  padding: 0.65rem 1.1rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  gap: 0.65rem;
+  background-color: transparent;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 9999px;
+  padding: 0.6rem 1.05rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.skills-search-pill-box:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 .skills-search-pill-box:focus-within {
-  background-color: #3F3F46;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: #0A0A0A;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
+}
+
+.skills-search-icon {
+  color: #71717A;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.skills-search-pill-box:focus-within .skills-search-icon {
+  color: #0A0A0A;
 }
 
 .skills-search-pill-input {
@@ -85,29 +105,33 @@
   background: transparent;
   outline: none;
   font-family: 'Nunito', 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #0A0A0A;
 }
 
 .skills-search-pill-input::placeholder {
-  color: #D4D4D8;
-  opacity: 0.9;
+  color: #94A3B8;
+  opacity: 1;
 }
 
 .skills-search-pill-clear {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.06);
   border: none;
-  color: #D4D4D8;
-  padding: 0.2rem;
+  color: #64748B;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.15s ease;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
 .skills-search-pill-clear:hover {
+  background: #0A0A0A;
   color: #FFFFFF;
 }
 
@@ -210,8 +234,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
   margin-bottom: 0.75rem;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hex-icon-container img {
+  display: block;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
+}
+
+.hex-icon-container svg {
+  display: block;
+  user-select: none;
 }
 
 .hex-card:hover .hex-icon-container,

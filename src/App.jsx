@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroKinetic from './components/HeroKinetic';
+import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
+import ProjectsSection from './components/ProjectsSection';
 import ContactModal from './components/ContactModal';
 import { downloadResume } from './utils/resumeDownload';
 
@@ -18,8 +20,10 @@ export default function App() {
 
       {/* Main Interactive Sections */}
       <main>
-        <HeroKinetic />
+        <HeroKinetic onOpenContact={() => setIsContactOpen(true)} />
+        <AboutSection />
         <SkillsSection onOpenContact={() => setIsContactOpen(true)} />
+        <ProjectsSection />
       </main>
 
       {/* Contact Drawer / Modal */}

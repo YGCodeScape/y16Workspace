@@ -73,13 +73,65 @@
 .hero-note-container {
   max-width: 1180px;
   width: 100%;
-  margin: 0;
-  margin-left: 50px;
+  margin: 0 auto;
   position: relative;
   z-index: 10;
   text-align: left;
   line-height: 1.25;
+}
 
+/* Bottom Center Explore Chip */
+.hero-explore-chip {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  color: #18181B;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-explore-chip:hover {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  border-color: #0A0A0A;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.hero-explore-chip-arrow {
+  color: #00D084;
+  animation: exploreArrowBounce 1.8s ease-in-out infinite;
+  transition: color 0.2s ease;
+}
+
+.hero-explore-chip:hover .hero-explore-chip-arrow {
+  color: #00D084;
+}
+
+@keyframes exploreArrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
 }
 
 .hero-word {
@@ -174,7 +226,7 @@
   }
 
   .hero-bottom-action {
-    bottom: 1.5rem;
+    bottom: 4.5rem;
     right: 1.5rem;
   }
 
@@ -190,19 +242,30 @@
   .hero-kinetic-section {
     padding: 5.5rem 1rem 4.5rem;
   }
+  .hero-arrow-icon {
+    width: 25px;
+    height: 25px;
+  } 
+  .hero-arrow-pill {
+    font-size: 0.7rem;
+  }
 
   .hero-guide-arrow {
-    top: 80px;
+    top: 70px;
     left: 1rem;
   }
 
   .hero-bottom-action {
-    bottom: 1.25rem;
+    bottom: 6.50rem;
     right: 1.25rem;
   }
 
   .hero-reveal-btn {
     padding: 0.65rem 1.15rem;
     font-size: 0.82rem;
+  }
+  .hero-note-container  {
+    line-height: 1.10;
+    margin-bottom: 70px;
   }
 }

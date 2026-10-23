@@ -19,7 +19,7 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
     <>
       <header className="navigation-header">
         {/* Top Left: Logo / Brand Name with Lettermark */}
-        <div className="animate-nav-in">
+        <div className="nav-brand-group">
           <a href="#home" className="top-left-logo">
             <img src={letterMark} alt="Y16 Lettermark" className="logo-lettermark" />
             <span>Workspace</span>
@@ -32,7 +32,7 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
         </div>
 
         {/* Top Center: Social Media Icons Dock (Desktop Only) */}
-        <nav className="social-dock animate-nav-in">
+        <nav className="social-dock">
           {socials.map((item) => {
             const Icon = item.icon;
             const isHovered = activeTooltip === item.id;
@@ -65,50 +65,52 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
           })}
         </nav>
 
-        {/* Top Right: Desktop Morphing CTAs (Desktop Only) */}
-        <div className="nav-cta-group desktop-only animate-nav-in">
-          {/* Direct Download Resume Button */}
-          <div className="cta-btn-wrapper resume-wrapper">
-            <button 
-              onClick={onDownloadResume}
-              id="btn-resume-download"
-              className="cta-morph-btn resume-btn"
-              aria-label="Download Resume"
-            >
-              <span className="cta-icon-box">
-                <Download size={16} strokeWidth={2.2} />
-              </span>
-              <span className="cta-btn-text">Resume</span>
-            </button>
+        {/* Top Right: Desktop Morphing CTAs & Mobile Hamburger */}
+        <div className="nav-right-group">
+          <div className="nav-cta-group desktop-only">
+            {/* Direct Download Resume Button */}
+            <div className="cta-btn-wrapper resume-wrapper">
+              <button 
+                onClick={onDownloadResume}
+                id="btn-resume-download"
+                className="cta-morph-btn resume-btn"
+                aria-label="Download Resume"
+              >
+                <span className="cta-icon-box">
+                  <Download size={16} strokeWidth={2.2} />
+                </span>
+                <span className="cta-btn-text">Resume</span>
+              </button>
+            </div>
+
+            {/* Contact CTA Button */}
+            <div className="cta-btn-wrapper contact-wrapper">
+              <button
+                onClick={onOpenContact}
+                id="btn-contact-cta"
+                className="cta-morph-btn contact-btn"
+                aria-label="Contact Yash"
+              >
+                <span className="cta-icon-box">
+                  <Mail size={16} strokeWidth={2.2} />
+                </span>
+                <span className="cta-btn-text">Contact</span>
+                <span className="cta-btn-arrow">
+                  <ArrowUpRight size={15} strokeWidth={2.5} />
+                </span>
+              </button>
+            </div>
           </div>
 
-          {/* Contact CTA Button */}
-          <div className="cta-btn-wrapper contact-wrapper">
-            <button
-              onClick={onOpenContact}
-              id="btn-contact-cta"
-              className="cta-morph-btn contact-btn"
-              aria-label="Contact Yash"
-            >
-              <span className="cta-icon-box">
-                <Mail size={16} strokeWidth={2.2} />
-              </span>
-              <span className="cta-btn-text">Contact</span>
-              <span className="cta-btn-arrow">
-                <ArrowUpRight size={15} strokeWidth={2.5} />
-              </span>
-            </button>
-          </div>
+          {/* Mobile: Hamburger Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-hamburger-btn mobile-only"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-
-        {/* Mobile: Hamburger Button (Top Right on Mobile Only) */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-hamburger-btn mobile-only animate-nav-in"
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </header>
 
       {/* Mobile Animated Dropdown Box (Contains CTAs & Social Icons) */}
@@ -134,7 +136,7 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
               </button>
             </div>
 
-            {/* Section 1: The 2 CTAs (Normal click buttons without morph or slide) */}
+            {/* Section 1: The 2 CTAs */}
             <div className="mobile-ctas-container">
               <button
                 onClick={() => {
