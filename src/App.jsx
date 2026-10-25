@@ -4,6 +4,7 @@ import HeroKinetic from './components/HeroKinetic';
 import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
+import FooterSection from './components/FooterSection';
 import ContactModal from './components/ContactModal';
 import { downloadResume } from './utils/resumeDownload';
 
@@ -24,6 +25,7 @@ export default function App() {
         <AboutSection />
         <SkillsSection onOpenContact={() => setIsContactOpen(true)} />
         <ProjectsSection />
+        <FooterSection />
       </main>
 
       {/* Contact Drawer / Modal */}

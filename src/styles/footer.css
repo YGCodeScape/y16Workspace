@@ -1,0 +1,385 @@
+/* ========================================================
+   Footer Stylesheet (footer.css)
+   Pure Code Recreation of Blueprint Blue Theme & Typography
+   Vector SVG Blueprint Layer (Always 100% Perfectly Round)
+   Font Family: K2D, sans-serif
+   ======================================================== */
+
+.portfolio-footer-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0c2240; 
+  /* Layered radial gradients for the soft color blobs */
+  background-image: 
+    /* Top-right bright blue */
+    radial-gradient(circle at 85% 15%, #439df6 0%, transparent 50%),
+    /* Center deep royal blue */
+    radial-gradient(circle at 50% 50%, #1a5ccf 0%, transparent 65%),
+    /* Bottom-left lighter blue */
+    radial-gradient(circle at 10% 90%, #66a5f2 0%, transparent 40%),
+    /* Top-left gray-slate */
+    radial-gradient(circle at 10% 10%, #8fa5ba 0%, transparent 60%);
+  /* Texture & Noise controls - easily tune intensity here */
+  --footer-noise-opacity: 0.38;
+  --footer-noise-size: 260px;
+  color: #FFFFFF;
+  padding: 5rem 3.5rem 3.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.portfolio-footer-section,
+.portfolio-footer-section * {
+  font-family: 'K2D', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Subtle Depth & Vignette to frame and blend gradients */
+.footer-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(6, 17, 33, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tactile Matte Paper & Organic Film Grain Texture */
+.footer-grain-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/noiseTexture.png');
+  background-repeat: repeat;
+  background-size: var(--footer-noise-size, 260px);
+  mix-blend-mode: overlay;
+  opacity: var(--footer-noise-opacity, 0.38);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Precision SVG Vector Blueprint Overlay */
+.footer-blueprint-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.footer-inner-container {
+  position: relative;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+}
+
+/* ========================================================
+   Upper Region: Hero Typography & Go Top Button
+   ======================================================== */
+.footer-upper-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.footer-headline-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-author-name {
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  color: #FFFFFF;
+  margin-top: 90px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+}
+
+.footer-hero-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-portfolio-word {
+  font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+  color: #FFFFFF;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.footer-year-badge {
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ========================================================
+   Directional Hover "GO TOP" Button
+   ======================================================== */
+.footer-go-top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-shrink: 0;
+}
+
+.go-top-circle-btn {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.go-top-circle-btn:hover {
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.go-top-circle-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* Direction-Aware Expanding White Circle Fill */
+.go-top-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  clip-path: circle(0% at var(--mx, 50%) var(--my, 50%));
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: clip-path;
+  z-index: 1;
+}
+
+.go-top-circle-btn.hovered .go-top-fill {
+  clip-path: circle(150% at var(--mx, 50%) var(--my, 50%));
+}
+
+.go-top-icon-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-top-arrow-icon {
+  color: #FFFFFF;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.go-top-circle-btn.hovered .go-top-arrow-icon {
+  color: #0B4BD4;
+  transform: translateY(-2px);
+}
+
+.go-top-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.go-top-label:hover {
+  opacity: 0.85;
+}
+
+/* ========================================================
+   Lower Region: 3-Column Footer Grid
+   ======================================================== */
+.footer-lower-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 2.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Column 1: Contact Info */
+.footer-col-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-contact-item {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  width: fit-content;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s ease;
+}
+
+.footer-contact-item:hover {
+  transform: translateX(10px);
+  color: #FFFFFF;
+}
+
+.footer-address-text {
+  cursor: default;
+}
+
+/* Column 3: Online Presence */
+.footer-col-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-social-links-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.footer-social-link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  width: fit-content;
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s ease;
+}
+
+.footer-social-link:hover {
+  transform: translateX(8px);
+  color: #FFFFFF;
+}
+
+/* ========================================================
+   Responsive Breakpoints
+   ======================================================== */
+@media (max-width: 900px) {
+  .portfolio-footer-section {
+    min-height: 100vh;
+    height: auto;
+    padding: 4.5rem 1.75rem 2.5rem;
+  }
+
+  .footer-upper-row {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-go-top-container {
+    align-self: flex-end;
+    margin-top: 0;
+  }
+
+  .footer-lower-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    align-items: flex-start;
+  }
+
+  .footer-col-brand {
+    align-items: flex-start;
+    text-align: left;
+    order: 3;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+
+  .footer-col-socials {
+    align-items: flex-start;
+    text-align: left;
+    order: 2;
+  }
+
+  .footer-social-links-list {
+    align-items: flex-start;
+  }
+
+  .footer-social-link:hover {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-footer-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .footer-hero-title-wrap {
+    gap: 0.75rem;
+  }
+
+  .go-top-circle-btn {
+    width: 64px;
+    height: 64px;
+    margin-top: 80px;
+  }
+
+  .go-top-label {
+    font-size: 0.9rem;
+  }
+  .footer-author-name {
+    margin-top: 30px;
+  }
+}

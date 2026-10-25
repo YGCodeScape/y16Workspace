@@ -2,8 +2,6 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { SKILLS_DATA } from '../data/skillsData';
 import HexagonCard from './HexagonCard';
 import { 
-  ArrowLeft, 
-  ArrowRight, 
   Rocket, 
   Sparkles, 
   RotateCcw,
@@ -15,8 +13,6 @@ import '../styles/skills.css';
 export default function SkillsSection({ onOpenContact }) {
   const [searchQuery, setSearchQuery] = useState('');
   const scrollTrackRef = useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   // Filter skills based on search term
   const filteredSkills = useMemo(() => {
@@ -46,8 +42,6 @@ export default function SkillsSection({ onOpenContact }) {
   const checkScrollBoundaries = () => {
     const el = scrollTrackRef.current;
     if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 15);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 15);
   };
 
   useEffect(() => {
@@ -61,27 +55,6 @@ export default function SkillsSection({ onOpenContact }) {
       window.removeEventListener('resize', checkScrollBoundaries);
     };
   }, [filteredSkills]);
-
-  // Scroll 4 columns (8 skills) horizontally
-  const handleScrollLeft = () => {
-    if (scrollTrackRef.current) {
-      const colWidth = 220; // approximate card + gap width
-      scrollTrackRef.current.scrollBy({
-        left: -colWidth * 4,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const handleScrollRight = () => {
-    if (scrollTrackRef.current) {
-      const colWidth = 220;
-      scrollTrackRef.current.scrollBy({
-        left: colWidth * 4,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   const handleClearSearch = () => {
     setSearchQuery('');
@@ -195,29 +168,6 @@ export default function SkillsSection({ onOpenContact }) {
                   <HexagonCard key={skill.id} skill={skill} />
                 ))}
               </div>
-            </div>
-
-            {/* Bottom Indicator Buttons: Left & Right */}
-            <div className="skills-scroll-nav-bar">
-              <button
-                onClick={handleScrollLeft}
-                disabled={!canScrollLeft}
-                className="skills-nav-arrow-btn nav-btn-left"
-                aria-label="Scroll left"
-                id="btn-scroll-skills-left"
-              >
-                <ArrowLeft size={20} strokeWidth={2.2} />
-              </button>
-
-              <button
-                onClick={handleScrollRight}
-                disabled={!canScrollRight}
-                className="skills-nav-arrow-btn nav-btn-right"
-                aria-label="Scroll right"
-                id="btn-scroll-skills-right"
-              >
-                <ArrowRight size={20} strokeWidth={2.2} />
-              </button>
             </div>
           </div>
         )}

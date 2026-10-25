@@ -42,10 +42,18 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
+*::selection {
+  background: #7928CA;
+  color: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+  min-height: 100vh;
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-main);
@@ -86,26 +94,6 @@ a, button, [role="button"] {
   background-size: 32px 32px;
 }
 
-/* Header Slide-Down Motion */
-@keyframes navSlideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-nav-in {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  pointer-events: auto;
-  animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 /* Floating / Pulsing Arrow Indicator */
 @keyframes pulseArrow {
   0%, 100% {
@@ -134,6 +122,18 @@ a, button, [role="button"] {
 
 .animate-pulse-dot {
   animation: badgePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Header Slide-Down Motion */
+@keyframes navSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navigation-header {
@@ -170,11 +170,34 @@ a, button, [role="button"] {
   font-size: 1.35rem;
   letter-spacing: -0.03rem;
   text-transform: uppercase;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .top-left-logo:hover {
   transform: scale(1.03);
+}
+
+.logo-wordmark {
+  color: inherit;
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.35s ease;
+}
+
+/* When navigation lands on the dark footer, wordmark transitions to white */
+.nav-over-footer .top-left-logo,
+.nav-over-footer .logo-wordmark,
+.top-left-logo.over-footer,
+.top-left-logo.over-footer .logo-wordmark {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.nav-over-footer .live-pill {
+  border-color: rgba(0, 208, 132, 0.45);
+  background-color: rgba(0, 208, 132, 0.16);
+}
+
+.nav-over-footer .mobile-hamburger-btn {
+  color: #FFFFFF;
 }
 
 .logo-lettermark {
@@ -554,58 +577,6 @@ nav.social-dock {
   color: #0A0A0A;
 }
 
-/* Section 0: Mobile Navigation Links */
-.mobile-nav-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.mobile-nav-label {
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #94A3B8;
-  padding-left: 0.25rem;
-}
-
-.mobile-nav-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.mobile-nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.95rem;
-  border-radius: 12px;
-  background-color: #F8FAFC;
-  color: #334155;
-  text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 700;
-  transition: all 0.18s ease;
-}
-
-.mobile-nav-link:active,
-.mobile-nav-link.active {
-  background-color: #0A0A0A;
-  color: #FFFFFF;
-}
-
-.mobile-nav-link .mobile-nav-arrow {
-  opacity: 0.5;
-  transition: opacity 0.18s ease;
-}
-
-.mobile-nav-link:active .mobile-nav-arrow,
-.mobile-nav-link.active .mobile-nav-arrow {
-  opacity: 1;
-}
-
 /* Section 1: The 2 CTAs (Normal buttons without morph or slide) */
 .mobile-ctas-container {
   display: grid;
@@ -696,7 +667,6 @@ nav.social-dock {
    Responsive Breakpoints
    ======================================================== */
 @media (max-width: 860px) {
-  .nav-central-dock,
   nav.social-dock {
     display: none !important;
   }

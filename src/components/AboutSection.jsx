@@ -48,14 +48,6 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="minimal-divided-row story-specs-row">
-              <span>Docs-First Learner</span>
-              <span className="divider-bar">|</span>
-              <span>Project-Based Mastery</span>
-              <span className="divider-bar">|</span>
-              <span>Daily Practice</span>
-            </div>
-
             <div className="story-action-row">
               <a href="#skills-section" className="about-explore-stack-btn">
                 <span>Explore Technical Stack</span>

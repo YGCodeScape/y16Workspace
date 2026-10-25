@@ -385,51 +385,6 @@
 }
 
 /* ========================================================
-   Bottom Indicator Buttons (Left & Right)
-   ======================================================== */
-.skills-scroll-nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 1.25rem;
-  padding: 0 0.5rem;
-}
-
-.skills-nav-arrow-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #E4E4E7;
-  color: #27272A;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-}
-
-.skills-nav-arrow-btn:hover:not(:disabled) {
-  background-color: #18181B;
-  color: #FFFFFF;
-  transform: scale(1.08);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-}
-
-.skills-nav-arrow-btn:active:not(:disabled) {
-  transform: scale(0.96);
-}
-
-.skills-nav-arrow-btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* ========================================================
    Empty State (Recruiter Hunger Pitch)
    ======================================================== */
 .skills-empty-state {
@@ -566,11 +521,6 @@
 
   .skills-search-wrapper {
     max-width: 100%;
-  }
-
-  .skills-nav-arrow-btn {
-    width: 42px;
-    height: 42px;
   }
 }
 

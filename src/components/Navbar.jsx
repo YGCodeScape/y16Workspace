@@ -1,28 +1,61 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Download, Mail, ArrowUpRight, Menu, X } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, InstagramIcon, ChessComIcon, FigmaIcon } from './Icons';
+import { GithubIcon, LinkedinIcon, InstagramIcon, ChessComIcon} from './Icons';
 import letterMark from '../assets/letterMark0.3.png';
 
 export default function Navbar({ onOpenContact, onDownloadResume }) {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOverFooter, setIsOverFooter] = useState(false);
+
+  useEffect(() => {
+    const footer = document.getElementById('footer');
+    if (!footer) return;
+
+    const checkFooter = () => {
+      const rect = footer.getBoundingClientRect();
+      // When footer top boundary reaches the navigation bar (75px from viewport top)
+      setIsOverFooter(rect.top <= 75 && rect.bottom > 0);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsOverFooter(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: '-75px 0px 0px 0px',
+        threshold: 0,
+      }
+    );
+
+    observer.observe(footer);
+    window.addEventListener('scroll', checkFooter, { passive: true });
+    window.addEventListener('resize', checkFooter);
+    checkFooter();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', checkFooter);
+      window.removeEventListener('resize', checkFooter);
+    };
+  }, []);
 
   const socials = [
     { id: 'github', label: 'GitHub', icon: GithubIcon, url: 'https://github.com' },
     { id: 'linkedin', label: 'LinkedIn', icon: LinkedinIcon, url: 'https://linkedin.com' },
     { id: 'instagram', label: 'Instagram', icon: InstagramIcon, url: 'https://instagram.com' },
     { id: 'chess', label: 'Chess.com', icon: ChessComIcon, url: 'https://www.chess.com/member/yashrg07' },
-    { id: 'figma', label: 'Figma', icon: FigmaIcon, url: 'https://figma.com' },
   ];
 
   return (
     <>
       <header className="navigation-header">
         {/* Top Left: Logo / Brand Name with Lettermark */}
-        <div className="nav-brand-group">
-          <a href="#home" className="top-left-logo">
+        <div className={`nav-brand-group ${isOverFooter ? 'nav-over-footer' : ''}`}>
+          <a href="#home" className={`top-left-logo ${isOverFooter ? 'over-footer' : ''}`}>
             <img src={letterMark} alt="Y16 Lettermark" className="logo-lettermark" />
-            <span>Workspace</span>
+            <span className="logo-wordmark">Workspace</span>
           </a>
 
           {/* Live Status Pill */}
