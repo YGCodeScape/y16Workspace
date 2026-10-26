@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Download, Mail, ArrowUpRight, Menu, X } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, InstagramIcon, ChessComIcon} from './Icons';
+import { Download } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, InstagramIcon, ChessComIcon } from './Icons';
 import letterMark from '../assets/letterMark0.3.png';
 
-export default function Navbar({ onOpenContact, onDownloadResume }) {
+export default function Navbar({ isMenuOpen, onToggleMenu, onDownloadResume }) {
   const [activeTooltip, setActiveTooltip] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isOverFooter, setIsOverFooter] = useState(false);
 
   useEffect(() => {
@@ -48,180 +47,80 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
     { id: 'chess', label: 'Chess.com', icon: ChessComIcon, url: 'https://www.chess.com/member/yashrg07' },
   ];
 
+  const isDarkHeader = isOverFooter || isMenuOpen;
+
   return (
-    <>
-      <header className="navigation-header">
-        {/* Top Left: Logo / Brand Name with Lettermark */}
-        <div className={`nav-brand-group ${isOverFooter ? 'nav-over-footer' : ''}`}>
-          <a href="#home" className={`top-left-logo ${isOverFooter ? 'over-footer' : ''}`}>
-            <img src={letterMark} alt="Y16 Lettermark" className="logo-lettermark" />
-            <span className="logo-wordmark">Workspace</span>
-          </a>
+    <header className={`navigation-header ${isDarkHeader ? 'nav-is-dark' : ''}`}>
+      {/* Top Left: Logo / Brand Name with Lettermark */}
+      <div className={`nav-brand-group ${isDarkHeader ? 'nav-over-footer' : ''}`}>
+        <a href="#home" className={`top-left-logo ${isDarkHeader ? 'over-footer' : ''}`}>
+          <img src={letterMark} alt="Y16 Lettermark" className="logo-lettermark" />
+          <span className="logo-wordmark">Workspace</span>
+        </a>
+      </div>
 
-          {/* Live Status Pill */}
-          <div className="live-pill">
-            <span className="live-dot animate-pulse-dot" />
-          </div>
-        </div>
-
-        {/* Top Center: Social Media Icons Dock (Desktop Only) */}
-        <nav className="social-dock">
-          {socials.map((item) => {
-            const Icon = item.icon;
-            const isHovered = activeTooltip === item.id;
-            return (
-              <div 
-                key={item.id} 
-                className="nav-icon-container"
-                onMouseEnter={() => setActiveTooltip(item.id)}
-                onMouseLeave={() => setActiveTooltip(null)}
+      {/* Top Center: Social Media Icons Dock (Desktop Only) */}
+      <nav className="social-dock">
+        {socials.map((item) => {
+          const Icon = item.icon;
+          const isHovered = activeTooltip === item.id;
+          return (
+            <div 
+              key={item.id} 
+              className="nav-icon-container"
+              onMouseEnter={() => setActiveTooltip(item.id)}
+              onMouseLeave={() => setActiveTooltip(null)}
+            >
+              <a 
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={item.label}
+                className="nav-tags"
               >
-                <a 
-                  href={item.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={item.label}
-                  className="nav-tags"
-                >
-                  <Icon size={18} strokeWidth={2} />
-                </a>
+                <Icon size={18} strokeWidth={2} />
+              </a>
 
-                {/* Tooltip bubble */}
-                {isHovered && (
-                  <div className="tooltip-bubble">
-                    {item.label}
-                    <div className="tooltip-mark" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </nav>
-
-        {/* Top Right: Desktop Morphing CTAs & Mobile Hamburger */}
-        <div className="nav-right-group">
-          <div className="nav-cta-group desktop-only">
-            {/* Direct Download Resume Button */}
-            <div className="cta-btn-wrapper resume-wrapper">
-              <button 
-                onClick={onDownloadResume}
-                id="btn-resume-download"
-                className="cta-morph-btn resume-btn"
-                aria-label="Download Resume"
-              >
-                <span className="cta-icon-box">
-                  <Download size={16} strokeWidth={2.2} />
-                </span>
-                <span className="cta-btn-text">Resume</span>
-              </button>
+              {/* Tooltip bubble */}
+              {isHovered && (
+                <div className="tooltip-bubble">
+                  {item.label}
+                  <div className="tooltip-mark" />
+                </div>
+              )}
             </div>
+          );
+        })}
+      </nav>
 
-            {/* Contact CTA Button */}
-            <div className="cta-btn-wrapper contact-wrapper">
-              <button
-                onClick={onOpenContact}
-                id="btn-contact-cta"
-                className="cta-morph-btn contact-btn"
-                aria-label="Contact Yash"
-              >
-                <span className="cta-icon-box">
-                  <Mail size={16} strokeWidth={2.2} />
-                </span>
-                <span className="cta-btn-text">Contact</span>
-                <span className="cta-btn-arrow">
-                  <ArrowUpRight size={15} strokeWidth={2.5} />
-                </span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile: Hamburger Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="mobile-hamburger-btn mobile-only"
-            aria-label="Toggle Navigation Menu"
+      {/* Top Right: Resume CTA & 2-Line Morphing Menu Toggle */}
+      <div className="nav-right-group">
+        {/* Direct Download Resume Button */}
+        <div className="cta-btn-wrapper resume-wrapper">
+          <button 
+            onClick={onDownloadResume}
+            id="btn-resume-download"
+            className="cta-morph-btn resume-btn"
+            aria-label="Download Resume"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <span className="cta-icon-box">
+              <Download size={16} strokeWidth={2.2} />
+            </span>
+            <span className="cta-btn-text">Resume</span>
           </button>
         </div>
-      </header>
 
-      {/* Mobile Animated Dropdown Box (Contains CTAs & Social Icons) */}
-      {mobileMenuOpen && (
-        <>
-          <div 
-            className="mobile-drawer-backdrop"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          <div className="mobile-dropdown-box">
-            {/* Dropdown Header */}
-            <div className="mobile-dropdown-header">
-              <div className="mobile-dropdown-brand">
-                <img src={letterMark} alt="Y16 Lettermark" className="logo-lettermark" />
-                <span>Workspace</span>
-              </div>
-              <button 
-                onClick={() => setMobileMenuOpen(false)}
-                className="mobile-drawer-close"
-                aria-label="Close Menu"
-              >
-                <X size={18} />
-              </button>
-            </div>
-
-            {/* Section 1: The 2 CTAs */}
-            <div className="mobile-ctas-container">
-              <button
-                onClick={() => {
-                  onDownloadResume();
-                  setMobileMenuOpen(false);
-                }}
-                className="mobile-cta-btn mobile-resume-btn"
-              >
-                <Download size={17} strokeWidth={2.2} />
-                <span>Resume</span>
-              </button>
-
-              <button
-                onClick={() => {
-                  onOpenContact();
-                  setMobileMenuOpen(false);
-                }}
-                className="mobile-cta-btn mobile-contact-btn"
-              >
-                <Mail size={17} strokeWidth={2.2} />
-                <span>Contact</span>
-                <ArrowUpRight size={15} strokeWidth={2.5} />
-              </button>
-            </div>
-
-            <div className="mobile-dropdown-divider" />
-
-            {/* Section 2: Social Icons Nav Dock */}
-            <div className="mobile-socials-wrapper">
-              <span className="mobile-socials-label">Socials</span>
-              <div className="mobile-socials-row">
-                {socials.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <a
-                      key={item.id}
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mobile-social-icon-btn"
-                      aria-label={item.label}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <Icon size={19} strokeWidth={2} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-    </>
+        {/* Unified 2-Line Menu Toggle Button (Desktop & Mobile) */}
+        <button
+          type="button"
+          onClick={onToggleMenu}
+          className={`nav-menu-toggle-btn ${isMenuOpen ? 'is-active' : ''} ${isDarkHeader ? 'is-dark' : ''}`}
+          aria-label={isMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+        >
+          <span className="menu-line menu-line-1" />
+          <span className="menu-line menu-line-2" />
+        </button>
+      </div>
+    </header>
   );
 }

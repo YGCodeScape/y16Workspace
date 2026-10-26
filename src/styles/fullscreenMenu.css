@@ -1,0 +1,269 @@
+/* ========================================================
+   Full-Screen Navigation Overlay (fullscreenMenu.css)
+   Pure Dark Gray Editorial Menu Powered by GSAP & CSS
+   ======================================================== */
+
+.fullscreen-menu-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 95; /* Sits right beneath navigation-header (z-index: 100) */
+  background-color: #0E0E12;
+  color: #FFFFFF;
+  display: none; /* Managed by GSAP */
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 6.5rem 4rem 2.8rem 4rem;
+  font-family: 'K2D', sans-serif;
+}
+
+/* Matte Paper Grain Texture */
+.fs-grain-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/noiseTexture.png');
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle Ambient Gradient Bloom */
+.fs-ambient-tint {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 40%, rgba(26, 92, 207, 0.15) 0%, transparent 65%),
+    radial-gradient(circle at 85% 85%, rgba(67, 157, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(143, 165, 186, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fs-menu-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+}
+
+/* ========================================================
+   Center Navigation Links Row
+   ======================================================== */
+.fs-center-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3.2vw, 3.8rem);
+  flex-wrap: wrap;
+  margin: auto 0;
+  padding: 1.5rem 0;
+}
+
+.fs-nav-link {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: 'K2D', sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  user-select: none;
+  transition: 
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+}
+
+.fs-nav-link:hover {
+  color: #FFFFFF;
+  transform: translateY(-5px);
+}
+
+/* Editorial Focus Dimming on Non-Hovered Links */
+.fs-center-nav-row:hover .fs-nav-link:not(:hover) {
+  opacity: 0.35;
+}
+
+/* ========================================================
+   Lower Region: 3-Column Footer Grid
+   ======================================================== */
+.fs-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  align-items: end;
+  gap: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.fs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.fs-col-heading {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.48);
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.fs-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.fs-link {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  width: fit-content;
+  transition: 
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s ease;
+}
+
+.fs-link:hover {
+  transform: translateX(8px);
+  color: #FFFFFF;
+}
+
+.fs-address-text {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+}
+
+/* Column 2: Status & Details */
+.fs-col-details {
+  align-items: center;
+}
+
+.fs-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.55);;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.fs-details-sub {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Column 3: Online Presence */
+.fs-col-socials {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.fs-social-links-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.fs-social-link {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.fs-social-link:hover {
+  transform: translateX(8px);
+  color: #FFFFFF;
+}
+
+/* ========================================================
+   Mobile & Responsive Adaptations
+   ======================================================== */
+@media (max-width: 900px) {
+  .fullscreen-menu-overlay {
+    padding: 6rem 2.5rem 2rem 2.5rem;
+    overflow-y: auto;
+  }
+
+  .fs-center-nav-row {
+    gap: 1.5rem;
+  }
+
+  .fs-nav-link {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+  }
+
+  .fs-bottom-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .fs-col-details {
+    grid-column: span 2;
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .fullscreen-menu-overlay {
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+  }
+
+  .fs-center-nav-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .fs-nav-link {
+    font-size: clamp(2.2rem, 8vw, 2.8rem);
+    padding: 0.25rem 0;
+  }
+
+  .fs-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .fs-col-socials {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .fs-social-links-list {
+    align-items: flex-start;
+  }
+}

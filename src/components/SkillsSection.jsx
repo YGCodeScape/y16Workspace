@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import '../styles/skills.css';
 
-export default function SkillsSection({ onOpenContact }) {
+export default function SkillsSection() {
   const [searchQuery, setSearchQuery] = useState('');
   const scrollTrackRef = useRef(null);
 
@@ -64,8 +64,9 @@ export default function SkillsSection({ onOpenContact }) {
   };
 
   const handleChallengeMe = () => {
-    if (onOpenContact) {
-      onOpenContact(searchQuery);
+    const footerEl = document.getElementById('footer');
+    if (footerEl) {
+      footerEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
