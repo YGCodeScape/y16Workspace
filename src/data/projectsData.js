@@ -1,9 +1,9 @@
-import yemocafeImg from '../assets/projects/yemocafe.png';
-import sizzlitwebImg from '../assets/projects/sizzlitweb.png';
-import bmxcinemasImg from '../assets/projects/bmxcinemas.png';
-import commityouImg from '../assets/projects/commityou.png';
-import y16scoopsImg from '../assets/projects/y16scoops.png';
-import y16fitnessImg from '../assets/projects/y16fitness.jpeg';
+import yemocafeImg from '../assets/projects/yemocafe.webp';
+import sizzlitwebImg from '../assets/projects/sizzlitweb.webp';
+import bmxcinemasImg from '../assets/projects/bmxcinemas.webp';
+import commityouImg from '../assets/projects/commityou.webp';
+import y16scoopsImg from '../assets/projects/y16scoops.webp';
+import y16fitnessImg from '../assets/projects/y16fitness.webp';
 
 export const PROJECTS_DATA = [
   {

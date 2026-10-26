@@ -56,6 +56,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="React.js" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -67,6 +69,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="JavaScript" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -78,6 +82,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Node.js" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -89,6 +95,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="TypeScript" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -100,6 +108,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Next.js" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -111,6 +121,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="MySQL" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -122,6 +134,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Supabase" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -133,6 +147,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Tailwind CSS" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -144,6 +160,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Git" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -155,6 +173,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Vite" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -166,6 +186,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="Python" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );
@@ -177,6 +199,8 @@ export default function SkillIcon({ type, size = 46, color = 'currentColor' }) {
           alt="postman" 
           width={size} 
           height={size} 
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: 'contain' }}
         />
       );

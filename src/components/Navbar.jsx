@@ -42,9 +42,9 @@ export default function Navbar({ onOpenContact, onDownloadResume }) {
   }, []);
 
   const socials = [
-    { id: 'github', label: 'GitHub', icon: GithubIcon, url: 'https://github.com' },
-    { id: 'linkedin', label: 'LinkedIn', icon: LinkedinIcon, url: 'https://linkedin.com' },
-    { id: 'instagram', label: 'Instagram', icon: InstagramIcon, url: 'https://instagram.com' },
+    { id: 'github', label: 'GitHub', icon: GithubIcon, url: ' https://github.com/YGCodeScape' },
+    { id: 'linkedin', label: 'LinkedIn', icon: LinkedinIcon, url: 'https://www.linkedin.com/in/yash-gaikwad-a0969833b' },
+    { id: 'instagram', label: 'Instagram', icon: InstagramIcon, url: 'https://www.instagram.com/yashgaikwad7_' },
     { id: 'chess', label: 'Chess.com', icon: ChessComIcon, url: 'https://www.chess.com/member/yashrg07' },
   ];
 

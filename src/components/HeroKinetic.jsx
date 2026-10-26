@@ -22,7 +22,13 @@ const WORDS = NOTE_TEXT.split(' ');
 // Static constant: total non-space characters
 const TOTAL_LETTERS = NOTE_TEXT.replace(/\s+/g, '').length;
 
-export default function HeroKinetic({ onOpenContact }) {
+// Precomputed character offset for each word (sum of lengths of previous words)
+const WORD_OFFSETS = WORDS.reduce((acc, word, idx) => {
+  acc.push(idx === 0 ? 0 : acc[idx - 1] + WORDS[idx - 1].length);
+  return acc;
+}, []);
+
+export default function HeroKinetic() {
   // Map of charIndex -> { revealed: bool, activeColor: string | null, tilt: number, isHovered: bool }
   const [letterStates, setLetterStates] = useState({});
   const containerRef = useRef(null);
@@ -133,9 +139,6 @@ export default function HeroKinetic({ onOpenContact }) {
     setLetterStates({});
   };
 
-  // Track global index while mapping words
-  let charCounter = 0;
-
   return (
     <section 
       id="home"
@@ -159,10 +162,11 @@ export default function HeroKinetic({ onOpenContact }) {
       {/* Main Interactive Single Note Block */}
       <div className="hero-note-container">
         {WORDS.map((word, wordIndex) => {
+          const wordStart = WORD_OFFSETS[wordIndex];
           return (
             <span key={wordIndex} className="hero-word">
-              {Array.from(word).map((char) => {
-                const charIndex = charCounter++;
+              {Array.from(word).map((char, charIdx) => {
+                const charIndex = wordStart + charIdx;
                 const state = letterStates[charIndex];
                 const isRevealed = !!state?.revealed;
                 const currentColor = state?.activeColor || '#0A0A0A';

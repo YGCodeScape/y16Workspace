@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Send, Mail, Copy, Check, Sparkles, MessageSquare } from 'lucide-react';
+import { useState } from 'react';
+import { X, Send, Mail, Copy, Check, Sparkles } from 'lucide-react';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [copied, setCopied] = useState(false);
@@ -8,7 +8,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const email = 'hello@y16workspace.com';
+  const email = 'yashgaikwad0450@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -18,6 +18,11 @@ export default function ContactModal({ isOpen, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name || 'Visitor'}`);
+    const body = encodeURIComponent(
+      `Hello Yash,\n\n${formData.message}\n\n---\nName: ${formData.name}\nEmail: ${formData.email}`
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     setFormSent(true);
     setTimeout(() => {
       setFormSent(false);
@@ -187,7 +192,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <input
                 type="text"
                 required
-                placeholder="Jane Doe"
+                placeholder="Abhay Shigwan"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 style={{
@@ -209,7 +214,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <input
                 type="email"
                 required
-                placeholder="jane@company.com"
+                placeholder="youremail@gmail.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 style={{
@@ -231,7 +236,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <textarea
                 required
                 rows={3}
-                placeholder="Tell me about what you are planning to build..."
+                placeholder="Tell me about what you are planning to build OR what role are you offer for me..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 style={{

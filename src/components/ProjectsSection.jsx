@@ -67,6 +67,7 @@ function BrowserMockup({ project }) {
               src={project.image}
               alt={`${project.title} screenshot`}
               loading="lazy"
+              decoding="async"
               className="browser-screenshot-img"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
@@ -114,6 +115,7 @@ function ScrollFrame({ project }) {
           src={project.image}
           alt={project.title}
           loading="lazy"
+          decoding="async"
           draggable="false"
           className="scroll-frame-img"
           onError={(e) => {

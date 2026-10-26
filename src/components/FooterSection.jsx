@@ -65,14 +65,14 @@ function BlueprintVectorOverlay() {
 // ─── Word-Wrapped Typewriter Letter Animator ──────────────────────────────────
 function TypewriterText({ text, inView, baseDelay = 0, charSpeed = 0.024, className = "" }) {
   const words = text.split(' ');
-  let charCounter = 0;
 
   return (
     <span className={`typewriter-phrase ${className}`}>
       {words.map((word, wIdx) => {
         const wordChars = word.split('');
-        const startOffset = charCounter;
-        charCounter += wordChars.length + 1; // +1 for the space
+        const startOffset = words
+          .slice(0, wIdx)
+          .reduce((acc, prevWord) => acc + prevWord.length + 1, 0);
 
         return (
           <span key={wIdx} className="typewriter-word" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
@@ -268,7 +268,7 @@ export default function FooterSection() {
             </h4>
             <div className="footer-social-links-list">
               <a 
-                href="https://github.com/YGCodeScape" 
+                href=" https://github.com/YGCodeScape" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="footer-social-link"
@@ -282,7 +282,7 @@ export default function FooterSection() {
               </a>
 
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/yash-gaikwad-a0969833b" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="footer-social-link"
@@ -296,7 +296,7 @@ export default function FooterSection() {
               </a>
 
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/yashgaikwad7_" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="footer-social-link"

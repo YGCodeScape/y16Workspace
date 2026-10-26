@@ -21,7 +21,7 @@ export default function App() {
 
       {/* Main Interactive Sections */}
       <main>
-        <HeroKinetic onOpenContact={() => setIsContactOpen(true)} />
+        <HeroKinetic />
         <AboutSection />
         <SkillsSection onOpenContact={() => setIsContactOpen(true)} />
         <ProjectsSection />
