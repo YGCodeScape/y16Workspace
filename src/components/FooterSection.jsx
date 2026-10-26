@@ -268,7 +268,7 @@ export default function FooterSection() {
             </h4>
             <div className="footer-social-links-list">
               <a 
-                href=" https://github.com/YGCodeScape" 
+                href="https://github.com/YGCodeScape" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="footer-social-link"

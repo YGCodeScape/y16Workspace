@@ -192,7 +192,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <input
                 type="text"
                 required
-                placeholder="Abhay Shigwan"
+                placeholder="e.g. Alex Morgan or Company Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 style={{
@@ -236,7 +236,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <textarea
                 required
                 rows={3}
-                placeholder="Tell me about what you are planning to build OR what role are you offer for me..."
+                placeholder="Tell me about what you are planning to build, or the role you are offering..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 style={{
