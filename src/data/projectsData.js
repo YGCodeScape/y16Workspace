@@ -4,6 +4,9 @@ import bmxcinemasImg from '../assets/projects/bmxcinemas.webp';
 import commityouImg from '../assets/projects/commityou.webp';
 import y16scoopsImg from '../assets/projects/y16scoops.webp';
 import y16fitnessImg from '../assets/projects/y16fitness.webp';
+import twogoodcoImg from '../assets/projects/twogoodco.png';
+import gta6Img from '../assets/projects/gta6.png';
+import authSystemImg from '../assets/projects/authbackend.webp';
 
 export const PROJECTS_DATA = [
   {
@@ -101,5 +104,53 @@ export const PROJECTS_DATA = [
     image: sizzlitwebImg,
     fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
     accentColor: '#FF4B2B',
+  },
+  {
+    id: 'ToGoodCo',
+    number: '07',
+    category: 'SOCIAL ECOMMERCE',
+    status: 'Live on github pages',
+    title: 'ToGoodco.',
+    tagline: 'social impact e-commerce platform',
+    description: '  ',
+    techStack: ['HTML5', 'CSS', 'Vanilla JS', 'github'],
+    liveUrl: 'https://ygcodescape.github.io/TwoGoodCo/',
+    githubUrl: 'https://github.com/YGCodeScape/TwoGoodCo',
+    browserDisplayUrl: 'ygcodescape.github.io/TwoGoodCo',
+    image: twogoodcoImg,
+    fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
+    accentColor: '#FFFFFF',
+  },
+  {
+    id: 'gta6',
+    number: '08',
+    category: 'GAMING',
+    status: 'Live on github pages',
+    title: 'GTA6 Inspired Landing Page',
+    tagline: 'Motion and animation showcase track the cursor.',
+    description: 'its a inspred landing page of gta6 game with smoooth cursor movement animation and img transtion with page loading screen.',
+    techStack: ['React.js', 'Tailwind', 'Vanilla JS', 'github'],
+    liveUrl: 'https://ygcodescape.github.io/gta6/',
+    githubUrl: 'https://github.com/YGCodeScape/gta6',
+    browserDisplayUrl: 'ygcodescape.github.io/gta6',
+    image: gta6Img,
+    fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
+    accentColor: '#FFFFFF',
+  },
+  {
+    id: 'authSystem',
+    number: '09',
+    category: 'BACKEND',
+    status: 'repo on github',
+    title: 'Complete Authentication System',
+    tagline: 'Complete user authentication system for web applications.',
+    description: 'A production-ready authentication system built using Node.js, Express, and MySQL with advanced security features.',
+    techStack: ['node js', 'express js', 'mysql', 'JWT'],
+    liveUrl: 'https://github.com/YGCodeScape/Complete-Authentication-System',
+    githubUrl: 'https://github.com/YGCodeScape/Complete-Authentication-System',
+    browserDisplayUrl: 'https://github.com/YGCodeScape/Complete-Authentication-System',
+    image: authSystemImg,
+    fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
+    accentColor: '#FFFFFF',
   },
 ];
