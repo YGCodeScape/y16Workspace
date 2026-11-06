@@ -7,7 +7,8 @@ import y16fitnessImg from '../assets/projects/y16fitness.webp';
 import twogoodcoImg from '../assets/projects/twogoodco.png';
 import gta6Img from '../assets/projects/gta6.png';
 import authSystemImg from '../assets/projects/authbackend.webp';
-
+import y16orbitalImg from '../assets/projects/orbital.png';
+ 
 export const PROJECTS_DATA = [
   {
     id: 'yemo-cafe',
@@ -42,24 +43,8 @@ export const PROJECTS_DATA = [
     accentColor: '#84CC16',
   },
   {
-    id: 'y16-scoops',
-    number: '03',
-    category: '3D INTERACTIVE SHOWCASE',
-    status: 'Live on Vercel',
-    title: 'Y16Scoops Creamery',
-    tagline: 'Gesture-Driven 3D Artisanal Ice Cream Showcase',
-    description: 'A modern, interactive, and gesture-driven 3D product showcase for an artisanal ice cream brand. Features physical spring animations, dynamic thematic color morphing, and a tactile, fluid mobile experience.',
-    techStack: ['React 19', 'Vite', 'Framer Motion', 'Tailwind CSS'],
-    liveUrl: 'https://y16scoops.vercel.app/',
-    githubUrl: 'https://github.com/YGCodeScape/y16Scoops',
-    browserDisplayUrl: 'y16scoops.vercel.app',
-    image: y16scoopsImg,
-    fallbackGradient: 'radial-gradient(circle at 60% 30%, #831843 0%, #4C0519 60%, #0A0A0A 100%)',
-    accentColor: '#F43F5E',
-  },
-  {
     id: 'commit-you',
-    number: '04',
+    number: '03',
     category: 'AI DEVELOPER TOOLING',
     status: 'Open Source / Live',
     title: 'commitYou',
@@ -72,6 +57,22 @@ export const PROJECTS_DATA = [
     image: commityouImg,
     fallbackGradient: 'radial-gradient(circle at 60% 30%, #065F46 0%, #022C22 60%, #0A0A0A 100%)',
     accentColor: '#00D084',
+  },
+  {
+    id: 'orbital',
+    number: '04',
+    category: 'Dynamic Scroll',
+    status: 'live on vercel',
+    title: 'Y16Orbital',
+    tagline: ' AI-Powered Creative Production Studio Built for the Next Generation of Advertising.',
+    description: 'Awwwards-tier animated web portal for a speculative high-fashion and commercial generative AI studio. Engineered from the ground up to push the boundaries of modern creative front-end performance, the site pairs editorial typography and hyper-detailed campaign renders with a unified physics-based smooth scrolling and timeline animation pipeline.',
+    techStack: ['React.js', 'TailwindCss', 'GSAP', 'Lenis Scroll'],
+    liveUrl: 'https://y16orbital.vercel.app/',
+    githubUrl: 'https://github.com/YGCodeScape/y16Orbital',
+    browserDisplayUrl: 'https://y16orbital.vercel.app/',
+    image: y16orbitalImg,
+    fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
+    accentColor: '#FFFFFF',
   },
   {
     id: 'bmx-cinemas',
@@ -90,8 +91,24 @@ export const PROJECTS_DATA = [
     accentColor: '#A855F7',
   },
   {
-    id: 'sizzlitweb',
+    id: 'y16-scoops',
     number: '06',
+    category: '3D INTERACTIVE SHOWCASE',
+    status: 'Live on Vercel',
+    title: 'Y16Scoops Creamery',
+    tagline: 'Gesture-Driven 3D Artisanal Ice Cream Showcase',
+    description: 'A modern, interactive, and gesture-driven 3D product showcase for an artisanal ice cream brand. Features physical spring animations, dynamic thematic color morphing, and a tactile, fluid mobile experience.',
+    techStack: ['React 19', 'Vite', 'Framer Motion', 'Tailwind CSS'],
+    liveUrl: 'https://y16scoops.vercel.app/',
+    githubUrl: 'https://github.com/YGCodeScape/y16Scoops',
+    browserDisplayUrl: 'y16scoops.vercel.app',
+    image: y16scoopsImg,
+    fallbackGradient: 'radial-gradient(circle at 60% 30%, #831843 0%, #4C0519 60%, #0A0A0A 100%)',
+    accentColor: '#F43F5E',
+  },
+  {
+    id: 'sizzlitweb',
+    number: '07',
     category: 'FOOD DISCOVERY & SHORT REELS',
     status: 'Live on Netlify',
     title: 'sizzlitWeb',
@@ -107,7 +124,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'ToGoodCo',
-    number: '07',
+    number: '08',
     category: 'SOCIAL ECOMMERCE',
     status: 'Live on github pages',
     title: 'ToGoodco.',
@@ -123,7 +140,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'gta6',
-    number: '08',
+    number: '09',
     category: 'GAMING',
     status: 'Live on github pages',
     title: 'GTA6 Inspired Landing Page',
@@ -139,7 +156,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'authSystem',
-    number: '09',
+    number: '10',
     category: 'BACKEND',
     status: 'repo on github',
     title: 'Complete Authentication System',
@@ -153,4 +170,4 @@ export const PROJECTS_DATA = [
     fallbackGradient: 'radial-gradient(circle at 60% 30%, #DC2626 0%, #7F1D1D 60%, #0A0A0A 100%)',
     accentColor: '#FFFFFF',
   },
-];
+]
